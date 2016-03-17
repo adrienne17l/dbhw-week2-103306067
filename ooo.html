@@ -1,3 +1,8 @@
+<html>
+<head>
+  
+  <title></title>
+<style>
 .timer-wrapper {
   position: absolute;
   top: 0;
@@ -180,3 +185,41 @@
     transform: rotate(-180deg);
   }
 }
+</style>
+</head>
+<body>
+<div class="timer-wrapper">
+  <span id="num">60</span>
+  <ul>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
+</div>
+<script>
+function minus() {
+  if (document.getElementById("num")) {
+    var curr = parseInt(document.getElementById("num").innerHTML);
+  }
+
+  if (curr && curr <= 60) {
+
+    if (curr <= 10) {
+      document.getElementById("num").innerHTML = "0" + (curr - 1);
+    } else {
+      document.getElementById("num").innerHTML = curr - 1;
+    }
+  } else {
+    document.getElementById("num").innerHTML = 60;
+  }
+
+  setTimeout(function() {
+    minus();
+  }, 1000);
+};
+minus();
+</script>
+</body>
+</html>
